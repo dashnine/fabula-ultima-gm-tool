@@ -123,7 +123,6 @@ AttributeName = "Description"
 layout_mode = 2
 
 [node name="Label" parent="VBoxContainer/Description/DescriptionText/Traits/HBoxContainer" index="0"]
-theme_override_font_sizes/font_size = 0
 text = "Typical Traits: "
 
 [node name="Text" parent="VBoxContainer/Description/DescriptionText/Traits/HBoxContainer" index="1"]
@@ -161,7 +160,7 @@ AttributeName = "Insight"
 layout_mode = 2
 
 [node name="Label" parent="VBoxContainer/Stats/Might/HBoxContainer" index="0"]
-text = "MIG:"
+text = "MIG: "
 
 [node name="Text" parent="VBoxContainer/Stats/Might/HBoxContainer" index="1"]
 text = "d10"
@@ -172,7 +171,7 @@ AttributeName = "Might"
 layout_mode = 2
 
 [node name="Label" parent="VBoxContainer/Stats/WillPower/HBoxContainer" index="0"]
-text = "WLP "
+text = "WLP: "
 
 [node name="Text" parent="VBoxContainer/Stats/WillPower/HBoxContainer" index="1"]
 text = "d8"
@@ -214,7 +213,7 @@ AttributeName = "Initiative"
 layout_mode = 2
 
 [node name="Label" parent="VBoxContainer/Stats/Defense/HBoxContainer" index="0"]
-text = "DEF:"
+text = "DEF: "
 
 [node name="Text" parent="VBoxContainer/Stats/Defense/HBoxContainer" index="1"]
 text = "+3"
@@ -225,7 +224,7 @@ AttributeDice = "Defense"
 layout_mode = 2
 
 [node name="Label" parent="VBoxContainer/Stats/MagicDefense/HBoxContainer" index="0"]
-text = "M. DEF:"
+text = "M.DEF: "
 
 [node name="Text" parent="VBoxContainer/Stats/MagicDefense/HBoxContainer" index="1"]
 text = "+1"
@@ -401,7 +400,8 @@ BeastEditScene = ExtResource("41_xckw7")
 [node name="DeleteButton" type="Button" parent="VBoxContainer/ModifySection"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Delete  NPC"
+theme_type_variation = &"DangerButton"
+text = "Delete NPC"
 script = ExtResource("40_1wrog")
 
 [node name="DeleteDialog" type="PopupPanel" parent="VBoxContainer/ModifySection/DeleteButton"]
@@ -424,6 +424,7 @@ script = ExtResource("41_kbchb")
 
 [node name="DeleteConfirmButton" type="Button" parent="VBoxContainer/ModifySection/DeleteButton/DeleteDialog/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"DangerButton"
 text = "Delete"
 script = ExtResource("42_nml4d")
 

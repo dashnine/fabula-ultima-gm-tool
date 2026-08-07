@@ -20,7 +20,7 @@ script = ExtResource("2_pw7ro")
 
 [node name="NpcEquipmentCategoryLabel" type="Label" parent="."]
 layout_mode = 2
-text = "<unsetCategory>"
+text = "<unset category>"
 script = ExtResource("3_jfmjc")
 
 [node name="ShowEquipmentButton" type="Button" parent="."]

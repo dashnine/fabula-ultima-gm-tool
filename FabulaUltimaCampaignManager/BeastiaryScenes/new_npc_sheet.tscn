@@ -171,7 +171,7 @@ text = "Traits:"
 
 [node name="TraitsEdit" type="LineEdit" parent="ScrollContainer/BeastEntryNode/Attributes/Description/DescriptionText"]
 layout_mode = 2
-placeholder_text = "creature traits"
+placeholder_text = "Creature Traits"
 script = ExtResource("11_klrkd")
 
 [node name="Stats" type="GridContainer" parent="ScrollContainer/BeastEntryNode/Attributes"]
@@ -229,7 +229,7 @@ AttributeName = "Initiative"
 layout_mode = 2
 
 [node name="Label" parent="ScrollContainer/BeastEntryNode/Attributes/Stats/Defense/HBoxContainer" index="0"]
-text = "DEF:"
+text = "DEF: "
 
 [node name="Text" parent="ScrollContainer/BeastEntryNode/Attributes/Stats/Defense/HBoxContainer" index="1"]
 text = "+3"
@@ -240,7 +240,7 @@ AttributeDice = "Defense"
 layout_mode = 2
 
 [node name="Label" parent="ScrollContainer/BeastEntryNode/Attributes/Stats/MagicDefense/HBoxContainer" index="0"]
-text = "M. DEF:"
+text = "M.DEF: "
 
 [node name="Text" parent="ScrollContainer/BeastEntryNode/Attributes/Stats/MagicDefense/HBoxContainer" index="1"]
 text = "+1"
@@ -338,8 +338,7 @@ layout_mode = 2
 
 [node name="SkillsLabel" type="Label" parent="ScrollContainer/BeastEntryNode/Skills"]
 layout_mode = 2
-text = "Skills
-"
+text = "Skills"
 
 [node name="SkillOptionsSection" type="HBoxContainer" parent="ScrollContainer/BeastEntryNode/Skills"]
 layout_mode = 2
@@ -423,6 +422,7 @@ StartNodePath = "../../../../../NewNpcSheet"
 
 [node name="SaveButton" type="Button" parent="ScrollContainer/BeastEntryNode"]
 layout_mode = 2
+theme_type_variation = &"PrimaryButton"
 text = "Save"
 script = ExtResource("40_y6vnr")
 

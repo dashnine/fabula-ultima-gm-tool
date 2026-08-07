@@ -72,7 +72,7 @@ layout_mode = 2
 script = ExtResource("7_impxn")
 
 [node name="Label" parent="VillianRank/HBoxContainer" index="0"]
-text = "Villian Rank: "
+text = "Villain Rank: "
 
 [node name="Text" parent="VillianRank/HBoxContainer" index="1"]
 script = ExtResource("8_6hg6c")
@@ -85,6 +85,7 @@ StatWindowScene = ExtResource("8_dgv5w")
 
 [node name="RemoveButton" type="Button" parent="."]
 layout_mode = 2
+theme_type_variation = &"DangerButton"
 text = "Remove"
 
 [connection signal="VillianRankStatus" from="." to="VillianRank" method="HandleVillianRankStatus"]

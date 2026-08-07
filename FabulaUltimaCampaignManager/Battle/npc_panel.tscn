@@ -62,7 +62,7 @@ Attribute = "HP"
 text = "HP: "
 
 [node name="Text" parent="NpcStatus/Attributes/HP/HBoxContainer" index="1"]
-text = "unset"
+text = "<unset>"
 
 [node name="MP" parent="NpcStatus/Attributes" instance=ExtResource("1_1ptjk")]
 layout_mode = 2
@@ -81,7 +81,7 @@ script = ExtResource("3_novmc")
 Attribute = "MDef"
 
 [node name="Label" parent="NpcStatus/Attributes/Mdef/HBoxContainer" index="0"]
-text = "M.Def: "
+text = "M.DEF: "
 
 [node name="Text" parent="NpcStatus/Attributes/Mdef/HBoxContainer" index="1"]
 text = "<unset>"
@@ -92,7 +92,7 @@ script = ExtResource("3_novmc")
 Attribute = "PDef"
 
 [node name="Label" parent="NpcStatus/Attributes/PDef/HBoxContainer" index="0"]
-text = "P Def: "
+text = "DEF: "
 
 [node name="Text" parent="NpcStatus/Attributes/PDef/HBoxContainer" index="1"]
 text = "<unset>"
@@ -325,7 +325,7 @@ text = "Acc Mod"
 
 [node name="AccuracyMod" type="LineEdit" parent="NpcStatus/Roll"]
 layout_mode = 2
-placeholder_text = "damage mod"
+placeholder_text = "Acc mod"
 script = ExtResource("17_i44yt")
 
 [node name="HighRollModLabel" type="Label" parent="NpcStatus/Roll"]
@@ -345,13 +345,12 @@ text = "Difficulty"
 
 [node name="Difficulty" type="LineEdit" parent="NpcStatus/Roll"]
 layout_mode = 2
-placeholder_text = "HR mod"
+placeholder_text = "Difficulty"
 script = ExtResource("17_ta6go")
 
 [node name="RollButton" type="Button" parent="NpcStatus/Roll"]
 layout_mode = 2
-text = "Roll
-"
+text = "Roll"
 script = ExtResource("12_h1pac")
 
 [node name="ResultLabel" type="Label" parent="NpcStatus/Roll"]
@@ -368,7 +367,7 @@ layout_mode = 2
 [node name="DamageAmount" type="LineEdit" parent="NpcStatus/Damage"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-placeholder_text = "damage"
+placeholder_text = "Damage"
 
 [node name="DamageType" type="OptionButton" parent="NpcStatus/Damage"]
 layout_mode = 2
@@ -380,7 +379,7 @@ script = ExtResource("15_cb83f")
 [node name="ResistanceOverride" type="CheckButton" parent="NpcStatus/Damage"]
 layout_mode = 2
 tooltip_text = "usually from guard. doesn't double up with existing resistance and only brings vulnerabilities up to \"no affnity\""
-text = "add resistance"
+text = "Add Resistance"
 
 [node name="ExpectedDamageLabel" type="Label" parent="NpcStatus/Damage"]
 layout_mode = 2
@@ -400,7 +399,7 @@ script = ExtResource("15_1atgb")
 [node name="Notes" type="TextEdit" parent="NpcStatus"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-placeholder_text = "notes"
+placeholder_text = "Notes"
 
 [node name="FinishTurnButton" type="Button" parent="NpcStatus"]
 layout_mode = 2

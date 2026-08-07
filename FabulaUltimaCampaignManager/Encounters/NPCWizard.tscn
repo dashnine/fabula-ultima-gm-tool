@@ -164,8 +164,7 @@ script = ExtResource("17_ggmoy")
 
 [node name="Rank" type="Label" parent="TabContainer/ResultDetail/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Rank: <unset>
-"
+text = "Rank: <unset>"
 script = ExtResource("18_spiib")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/ResultDetail/VBoxContainer"]
@@ -181,8 +180,7 @@ visible = false
 
 [node name="CompleteButton" type="Button" parent="TabContainer/ResultDetail/VBoxContainer"]
 layout_mode = 2
-text = "Complete
-"
+text = "Complete"
 
 [connection signal="close_requested" from="." to="." method="OnClose"]
 [connection signal="text_submitted" from="TabContainer/InstanceDetail/VBoxContainer/NameLine/NameLineEdit" to="TabContainer/InstanceDetail/VBoxContainer/NameLine/NameLineEdit" method="OnSubmit"]

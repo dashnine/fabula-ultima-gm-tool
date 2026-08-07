@@ -344,7 +344,6 @@ offset_right = 117.0
 offset_bottom = -87.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "testing"
 theme = ExtResource("7_yxys7")
 columns = 3
 script = ExtResource("19_oqi14")

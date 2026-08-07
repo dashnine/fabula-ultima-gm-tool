@@ -27,7 +27,7 @@ script = ExtResource("2_phoqs")
 [node name="IsSpecialAttack" type="CheckButton" parent="SkillSelection"]
 layout_mode = 2
 disabled = true
-text = "is special attack"
+text = "Is Special Attack"
 script = ExtResource("3_bcb10")
 
 [node name="Selected Skill Details" parent="." instance=ExtResource("1_5c8sd")]

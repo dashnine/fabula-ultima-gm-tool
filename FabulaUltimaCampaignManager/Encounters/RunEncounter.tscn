@@ -181,9 +181,6 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-text = "[color=green]testing[/color]
-[b]what multiple lines[/b]
-[font=Font/CleanVictory.fnt]looks like[/font]"
 scroll_following = true
 script = ExtResource("10_f45dp")
 PlayerWinFont = ExtResource("10_ywu3j")
@@ -218,6 +215,7 @@ script = ExtResource("6_0ebfa")
 [node name="EndEncounterButton" type="Button" parent="GMScreen/VBoxContainer/VFlowContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"DangerButton"
 text = "End Scene"
 script = ExtResource("12_2xgj5")
 

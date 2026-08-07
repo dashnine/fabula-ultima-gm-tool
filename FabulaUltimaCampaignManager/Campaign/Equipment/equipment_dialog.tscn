@@ -114,7 +114,7 @@ text = "Armor Attributes"
 
 [node name="MDefLabel" type="Label" parent="VBoxContainer/EquipmentDetails/ArmorAttributes"]
 layout_mode = 2
-text = "M. Def"
+text = "M.DEF"
 
 [node name="MDefLineEdit" type="LineEdit" parent="VBoxContainer/EquipmentDetails/ArmorAttributes"]
 layout_mode = 2
@@ -122,7 +122,7 @@ script = ExtResource("12_3e4i7")
 
 [node name="PDefLabel" type="Label" parent="VBoxContainer/EquipmentDetails/ArmorAttributes"]
 layout_mode = 2
-text = "P. Def"
+text = "DEF"
 
 [node name="PDefLineEdit" type="LineEdit" parent="VBoxContainer/EquipmentDetails/ArmorAttributes"]
 layout_mode = 2

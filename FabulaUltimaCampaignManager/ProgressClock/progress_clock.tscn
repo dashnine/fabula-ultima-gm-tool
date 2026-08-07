@@ -116,6 +116,7 @@ text = "Edit"
 [node name="RemoveButton" type="Button" parent="VBoxContainer" groups=["edit_mode", "part_of_delete"]]
 layout_mode = 2
 size_flags_vertical = 8
+theme_type_variation = &"DangerButton"
 text = "Remove"
 
 [connection signal="ClockTitleUpdate" from="." to="VBoxContainer/TitleLabel" method="UpdateText"]

@@ -59,7 +59,7 @@ script = ExtResource("4_jfs26")
 VisibleStudyLevel = 3
 
 [node name="Label" parent="Defense/HBoxContainer" index="0"]
-text = "Def: "
+text = "DEF: "
 
 [node name="Text" parent="Defense/HBoxContainer" index="1"]
 script = ExtResource("6_luya3")
@@ -71,7 +71,7 @@ script = ExtResource("4_jfs26")
 VisibleStudyLevel = 3
 
 [node name="Label" parent="MagicDefense/HBoxContainer" index="0"]
-text = "MDef: "
+text = "M.DEF: "
 
 [node name="Text" parent="MagicDefense/HBoxContainer" index="1"]
 script = ExtResource("7_21845")

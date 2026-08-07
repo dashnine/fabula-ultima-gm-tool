@@ -18,7 +18,7 @@ layout_mode = 2
 
 [node name="VillianLevelLabel" type="Label" parent="LevelSectionContainer"]
 layout_mode = 2
-text = "Villian Level: "
+text = "Villain Level: "
 
 [node name="VillianLevelButton" type="OptionButton" parent="LevelSectionContainer"]
 layout_mode = 2

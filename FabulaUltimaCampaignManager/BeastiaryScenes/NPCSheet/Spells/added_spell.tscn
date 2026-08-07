@@ -31,7 +31,7 @@ text = "MP:"
 
 [node name="MpCostEdit" type="LineEdit" parent="SpellAttributes"]
 layout_mode = 2
-placeholder_text = "Mp Cost"
+placeholder_text = "MP Cost"
 editable = false
 expand_to_text_length = true
 script = ExtResource("4_f5nyv")

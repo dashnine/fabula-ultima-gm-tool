@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://ec56818wobea"]
+[gd_scene load_steps=61 format=3 uid="uid://ec56818wobea"]
 
 [ext_resource type="Script" uid="uid://qd737jwjpmc5" path="res://GetBeastiary.cs" id="1_4mhff"]
 [ext_resource type="PackedScene" uid="uid://dvrc1lde82y6f" path="res://BeastiaryScenes/BeastEntryNode.tscn" id="1_4uxgl"]
@@ -119,6 +119,8 @@ _data = {
 &"rotate": SubResource("Animation_nvy4y")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spacer"]
+
 [node name="Fabula Ultima Campaign Manager" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -192,6 +194,7 @@ script = ExtResource("3_3pve8")
 
 [node name="StartEncounterButton" type="Button" parent="HSplitContainer/CurrentEncounter/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"PrimaryButton"
 text = "Start Scene"
 script = ExtResource("4_t2e78")
 RunEncounterScene = ExtResource("5_tr8nu")
@@ -230,6 +233,7 @@ script = ExtResource("8_vnw2q")
 
 [node name="RunEncounterButton" type="Button" parent="HSplitContainer/CurrentEncounter/VBoxContainer/StartEncounterButton/InitiativePopup/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"PrimaryButton"
 disabled = true
 text = "Run"
 script = ExtResource("9_buhfi")
@@ -396,6 +400,7 @@ text = ""
 
 [node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/CampaignManager/Campaign"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_spacer")
 
 [node name="Encounters" type="VBoxContainer" parent="HSplitContainer/CampaignManager/Campaign"]
 layout_mode = 2
@@ -558,6 +563,7 @@ layout_mode = 2
 
 [node name="AddNpcButton" type="Button" parent="HSplitContainer/CampaignManager/Beastiary/FilteredSearch"]
 layout_mode = 2
+theme_type_variation = &"PrimaryButton"
 text = "Add NPC"
 script = ExtResource("23_yxpob")
 AddNpcScene = ExtResource("24_tvbgp")
@@ -568,7 +574,7 @@ layout_mode = 2
 [node name="SearchText" type="LineEdit" parent="HSplitContainer/CampaignManager/Beastiary/FilteredSearch/Search"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "search"
+placeholder_text = "Search"
 max_length = 25
 script = ExtResource("25_dycy4")
 
@@ -631,7 +637,7 @@ libraries = {
 [node name="AboutPanel" type="PopupPanel" parent="."]
 title = "About"
 initial_position = 1
-size = Vector2i(244, 978)
+size = Vector2i(520, 560)
 borderless = false
 keep_title_visible = true
 script = ExtResource("38_3f044")
@@ -686,7 +692,8 @@ Ansimuz [url]https://ansimuz.itch.io/[/url]
 Battlebacks [url]https://battlebacks-landscapes.itch.io/[/url]
 Craftpix.net [url]https://free-game-assets.itch.io/[/url]
 [b]Progress clock based on :[/b] diklor [url]https://godotengine.org/asset-library/asset/2220[/url]"
-fit_content = true
+size_flags_vertical = 3
+fit_content = false
 
 [node name="ChooseCampaignPanel" type="PopupPanel" parent="."]
 title = "Load Campaign"
@@ -737,6 +744,7 @@ script = ExtResource("49_uxrjf")
 
 [node name="NewCampaignButton" type="Button" parent="NewCampaignPanel/NewCampaignContainer"]
 layout_mode = 2
+theme_type_variation = &"PrimaryButton"
 disabled = true
 text = "Create"
 script = ExtResource("50_ifarl")
