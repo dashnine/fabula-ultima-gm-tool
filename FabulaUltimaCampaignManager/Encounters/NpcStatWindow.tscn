@@ -20,4 +20,18 @@ grow_vertical = 2
 [node name="BeastEntryNode" parent="ScrollContainer" instance=ExtResource("2_06wlw")]
 layout_mode = 2
 
+[node name="Details" parent="ScrollContainer/BeastEntryNode/VBoxContainer/Description/DescriptionText" index="1"]
+visible = true
+
+[node name="Traits" parent="ScrollContainer/BeastEntryNode/VBoxContainer/Description/DescriptionText" index="2"]
+visible = true
+
+[node name="DetailBlock" parent="ScrollContainer/BeastEntryNode/VBoxContainer" index="1"]
+visible = true
+
+[node name="DetailsToggle" parent="ScrollContainer/BeastEntryNode/VBoxContainer/ModifySection" index="0"]
+button_pressed = true
+
 [connection signal="close_requested" from="." to="." method="OnCloseRequested"]
+
+[editable path="ScrollContainer/BeastEntryNode"]

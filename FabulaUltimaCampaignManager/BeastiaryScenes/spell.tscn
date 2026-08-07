@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://l57ucy852qf2"]
+[gd_scene load_steps=13 format=3 uid="uid://l57ucy852qf2"]
 
 [ext_resource type="Script" path="res://BeastiaryScenes/SpellNode.cs" id="1_8ob2u"]
 [ext_resource type="Script" path="res://SpellScripts/SpellTitle.cs" id="2_a0dvv"]
@@ -12,8 +12,11 @@
 [ext_resource type="Script" path="res://SpellScripts/ShareSpellButton.cs" id="9_5wo3d"]
 [ext_resource type="PackedScene" uid="uid://budv5wb410vkh" path="res://SpellScripts/ShareSpell.tscn" id="10_t0v2w"]
 
+[sub_resource type="StyleBoxEmpty" id="sb_flat"]
+
 [node name="Spell" type="PanelContainer"]
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("sb_flat")
 script = ExtResource("1_8ob2u")
 
 [node name="SpellDetails" type="VBoxContainer" parent="."]
@@ -68,6 +71,7 @@ script = ExtResource("8_6qtqp")
 
 [node name="ShareButton" type="Button" parent="SpellDetails"]
 layout_mode = 2
+size_flags_horizontal = 8
 text = "Share"
 script = ExtResource("9_5wo3d")
 ShareSpellDialog = ExtResource("10_t0v2w")

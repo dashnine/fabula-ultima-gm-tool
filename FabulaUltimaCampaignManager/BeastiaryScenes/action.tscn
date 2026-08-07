@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddx26ghe36o0p"]
+[gd_scene load_steps=5 format=3 uid="uid://ddx26ghe36o0p"]
 
 [ext_resource type="Script" path="res://Skills/BeastSkills.cs" id="1_j213b"]
 [ext_resource type="Script" path="res://Skills/SkillName.cs" id="2_lf4jy"]
 [ext_resource type="Script" path="res://Skills/SkillDescription.cs" id="3_i774f"]
 
+[sub_resource type="StyleBoxEmpty" id="sb_flat"]
+
 [node name="Skill" type="PanelContainer"]
 offset_right = 585.0
 offset_bottom = 23.0
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("sb_flat")
 script = ExtResource("1_j213b")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

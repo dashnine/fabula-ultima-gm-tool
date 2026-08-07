@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dvrc1lde82y6f"]
+[gd_scene load_steps=48 format=3 uid="uid://dvrc1lde82y6f"]
 
 [ext_resource type="Script" path="res://BeastiaryScenes/BeastEntryNode.cs" id="1_t4gi0"]
 [ext_resource type="PackedScene" uid="uid://btyqcwcw47tqx" path="res://LabeledText.tscn" id="2_6f5hl"]
@@ -47,6 +47,8 @@
 [ext_resource type="Script" path="res://BeastiaryScenes/CancelDeleteButton.cs" id="43_jbvkn"]
 [ext_resource type="Script" path="res://BeastiaryScenes/ClipboardButton.cs" id="46_p3wsb"]
 
+[sub_resource type="StyleBoxEmpty" id="sb_flat"]
+
 [node name="BeastEntryNode" type="PanelContainer"]
 anchors_preset = 10
 anchor_right = 1.0
@@ -62,12 +64,15 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Description"]
+custom_minimum_size = Vector2(110, 110)
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="DescriptionImage" type="TextureRect" parent="VBoxContainer/Description/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("2_g8s5x")
-expand_mode = 3
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("3_bbr3a")
 
 [node name="UpdateImageButton" type="Button" parent="VBoxContainer/Description/PanelContainer"]
@@ -91,26 +96,89 @@ script = ExtResource("5_i30y8")
 
 [node name="DescriptionText" type="VBoxContainer" parent="VBoxContainer/Description"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="VBoxContainer/Description/DescriptionText"]
+[node name="SummaryLine" type="HFlowContainer" parent="VBoxContainer/Description/DescriptionText"]
 layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/Description/DescriptionText/SummaryLine"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"BoldLabel"
 text = "Archer"
 script = ExtResource("3_nqrqn")
 AttributeName = "Name"
 
-[node name="Level" type="Label" parent="VBoxContainer/Description/DescriptionText"]
+[node name="LevelGroup" type="HBoxContainer" parent="VBoxContainer/Description/DescriptionText/SummaryLine"]
 layout_mode = 2
-text = "Lvl 5"
+size_flags_vertical = 4
+
+[node name="LvLabel" type="Label" parent="VBoxContainer/Description/DescriptionText/SummaryLine/LevelGroup"]
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "Lv"
+
+[node name="Level" type="Label" parent="VBoxContainer/Description/DescriptionText/SummaryLine/LevelGroup"]
+layout_mode = 2
+text = "5"
 script = ExtResource("3_nqrqn")
 AttributeName = "Level"
 
-[node name="Species" type="Label" parent="VBoxContainer/Description/DescriptionText"]
+[node name="Species" type="Label" parent="VBoxContainer/Description/DescriptionText/SummaryLine"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "Humanoid"
 script = ExtResource("3_nqrqn")
 AttributeName = "Species"
 
+[node name="SummaryHP" parent="VBoxContainer/Description/DescriptionText/SummaryLine" instance=ExtResource("2_6f5hl")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" parent="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryHP/HBoxContainer" index="0"]
+text = "HP:"
+
+[node name="Text" parent="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryHP/HBoxContainer" index="1"]
+text = "<unset>"
+script = ExtResource("5_f5oe2")
+
+[node name="SummaryMP" parent="VBoxContainer/Description/DescriptionText/SummaryLine" instance=ExtResource("2_6f5hl")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" parent="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryMP/HBoxContainer" index="0"]
+text = "MP:"
+
+[node name="Text" parent="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryMP/HBoxContainer" index="1"]
+text = "<unset>"
+script = ExtResource("6_x4de1")
+
+[node name="SummaryDef" parent="VBoxContainer/Description/DescriptionText/SummaryLine" instance=ExtResource("2_6f5hl")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" parent="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryDef/HBoxContainer" index="0"]
+text = "DEF:"
+
+[node name="Text" parent="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryDef/HBoxContainer" index="1"]
+text = "<unset>"
+script = ExtResource("7_g4asi")
+AttributeDice = "Defense"
+
+[node name="SummaryMDef" parent="VBoxContainer/Description/DescriptionText/SummaryLine" instance=ExtResource("2_6f5hl")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" parent="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryMDef/HBoxContainer" index="0"]
+text = "M.DEF:"
+
+[node name="Text" parent="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryMDef/HBoxContainer" index="1"]
+text = "<unset>"
+script = ExtResource("7_g4asi")
+AttributeDice = "MagicalDefense"
+
 [node name="Details" type="Label" parent="VBoxContainer/Description/DescriptionText"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 3
@@ -120,6 +188,7 @@ script = ExtResource("3_nqrqn")
 AttributeName = "Description"
 
 [node name="Traits" parent="VBoxContainer/Description/DescriptionText" instance=ExtResource("2_6f5hl")]
+visible = false
 layout_mode = 2
 
 [node name="Label" parent="VBoxContainer/Description/DescriptionText/Traits/HBoxContainer" index="0"]
@@ -130,275 +199,286 @@ text = "boastful, irritable, proud, strong "
 script = ExtResource("3_nqrqn")
 AttributeName = "Traits"
 
-[node name="Stats" type="HFlowContainer" parent="VBoxContainer"]
+[node name="DetailBlock" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 
-[node name="Dexterity" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="Stats" type="HFlowContainer" parent="VBoxContainer/DetailBlock"]
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/Dexterity/HBoxContainer" index="0"]
+[node name="Dexterity" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/Dexterity/HBoxContainer" index="0"]
 text = "DEX: "
 
-[node name="Text" parent="VBoxContainer/Stats/Dexterity/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/Dexterity/HBoxContainer" index="1"]
 text = "d6"
 script = ExtResource("3_nqrqn")
 AttributeName = "Dexterity"
 
-[node name="Insight" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="Insight" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/Insight/HBoxContainer" index="0"]
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/Insight/HBoxContainer" index="0"]
 text = "INS: "
 
-[node name="Text" parent="VBoxContainer/Stats/Insight/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/Insight/HBoxContainer" index="1"]
 text = "d8"
 script = ExtResource("3_nqrqn")
 AttributeName = "Insight"
 
-[node name="Might" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="Might" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/Might/HBoxContainer" index="0"]
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/Might/HBoxContainer" index="0"]
 text = "MIG: "
 
-[node name="Text" parent="VBoxContainer/Stats/Might/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/Might/HBoxContainer" index="1"]
 text = "d10"
 script = ExtResource("3_nqrqn")
 AttributeName = "Might"
 
-[node name="WillPower" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="WillPower" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/WillPower/HBoxContainer" index="0"]
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/WillPower/HBoxContainer" index="0"]
 text = "WLP: "
 
-[node name="Text" parent="VBoxContainer/Stats/WillPower/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/WillPower/HBoxContainer" index="1"]
 text = "d8"
 script = ExtResource("3_nqrqn")
 AttributeName = "WillPower"
 
-[node name="HealthPoints" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="HealthPoints" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
+visible = false
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/HealthPoints/HBoxContainer" index="0"]
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/HealthPoints/HBoxContainer" index="0"]
 text = "HP:"
 
-[node name="Text" parent="VBoxContainer/Stats/HealthPoints/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/HealthPoints/HBoxContainer" index="1"]
 text = "60 | 30"
 script = ExtResource("5_f5oe2")
 
-[node name="MagicPoints" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="MagicPoints" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
+visible = false
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/MagicPoints/HBoxContainer" index="0"]
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/MagicPoints/HBoxContainer" index="0"]
 text = "MP:"
 
-[node name="Text" parent="VBoxContainer/Stats/MagicPoints/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/MagicPoints/HBoxContainer" index="1"]
 text = "45"
 script = ExtResource("6_x4de1")
 
-[node name="Initiative" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="Initiative" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/Initiative/HBoxContainer" index="0"]
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/Initiative/HBoxContainer" index="0"]
 text = "INIT:"
 
-[node name="Text" parent="VBoxContainer/Stats/Initiative/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/Initiative/HBoxContainer" index="1"]
 text = "10"
 script = ExtResource("3_nqrqn")
 AttributeName = "Initiative"
 
-[node name="Defense" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="Defense" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
+visible = false
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/Defense/HBoxContainer" index="0"]
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/Defense/HBoxContainer" index="0"]
 text = "DEF: "
 
-[node name="Text" parent="VBoxContainer/Stats/Defense/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/Defense/HBoxContainer" index="1"]
 text = "+3"
 script = ExtResource("7_g4asi")
 AttributeDice = "Defense"
 
-[node name="MagicDefense" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
+[node name="MagicDefense" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("2_6f5hl")]
+visible = false
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/Stats/MagicDefense/HBoxContainer" index="0"]
+[node name="Label" parent="VBoxContainer/DetailBlock/Stats/MagicDefense/HBoxContainer" index="0"]
 text = "M.DEF: "
 
-[node name="Text" parent="VBoxContainer/Stats/MagicDefense/HBoxContainer" index="1"]
+[node name="Text" parent="VBoxContainer/DetailBlock/Stats/MagicDefense/HBoxContainer" index="1"]
 text = "+1"
 script = ExtResource("7_g4asi")
 AttributeDice = "MagicalDefense"
 
-[node name="PhysicalResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="PhysicalResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Physical"
 
-[node name="Image" parent="VBoxContainer/Stats/PhysicalResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/PhysicalResistance/VBoxContainer" index="0"]
 texture = ExtResource("9_o3jl4")
 BrightImage = ExtResource("9_o3jl4")
 GrayImage = ExtResource("10_lo6wk")
 
-[node name="AirResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="AirResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Air"
 
-[node name="Image" parent="VBoxContainer/Stats/AirResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/AirResistance/VBoxContainer" index="0"]
 texture = ExtResource("11_bh076")
 BrightImage = ExtResource("11_bh076")
 GrayImage = ExtResource("12_g7x3k")
 
-[node name="BoltResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="BoltResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Bolt"
 
-[node name="Image" parent="VBoxContainer/Stats/BoltResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/BoltResistance/VBoxContainer" index="0"]
 texture = ExtResource("13_71cir")
 BrightImage = ExtResource("13_71cir")
 GrayImage = ExtResource("14_dok2s")
 
-[node name="DarkResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="DarkResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Dark"
 
-[node name="Image" parent="VBoxContainer/Stats/DarkResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/DarkResistance/VBoxContainer" index="0"]
 texture = ExtResource("15_o1kul")
 BrightImage = ExtResource("15_o1kul")
 GrayImage = ExtResource("16_pqgbu")
 
-[node name="EarthResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="EarthResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Earth"
 
-[node name="Image" parent="VBoxContainer/Stats/EarthResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/EarthResistance/VBoxContainer" index="0"]
 texture = ExtResource("17_u0xnt")
 BrightImage = ExtResource("17_u0xnt")
 GrayImage = ExtResource("18_0yh00")
 
-[node name="FireResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="FireResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Fire"
 
-[node name="Image" parent="VBoxContainer/Stats/FireResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/FireResistance/VBoxContainer" index="0"]
 texture = ExtResource("9_7ggv3")
 BrightImage = ExtResource("9_7ggv3")
 GrayImage = ExtResource("10_1k8xn")
 
-[node name="IceResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="IceResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Ice"
 
-[node name="Image" parent="VBoxContainer/Stats/IceResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/IceResistance/VBoxContainer" index="0"]
 texture = ExtResource("21_j58ux")
 BrightImage = ExtResource("21_j58ux")
 GrayImage = ExtResource("22_1502u")
 
-[node name="LightResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="LightResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Light"
 
-[node name="Image" parent="VBoxContainer/Stats/LightResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/LightResistance/VBoxContainer" index="0"]
 texture = ExtResource("23_17lks")
 BrightImage = ExtResource("23_17lks")
 GrayImage = ExtResource("24_cqar5")
 
-[node name="PoisonResistance" parent="VBoxContainer/Stats" instance=ExtResource("3_vhcs2")]
+[node name="PoisonResistance" parent="VBoxContainer/DetailBlock/Stats" instance=ExtResource("3_vhcs2")]
 layout_mode = 2
 ResistanceName = "Poison"
 
-[node name="Image" parent="VBoxContainer/Stats/PoisonResistance/VBoxContainer" index="0"]
+[node name="Image" parent="VBoxContainer/DetailBlock/Stats/PoisonResistance/VBoxContainer" index="0"]
 texture = ExtResource("25_neycv")
 BrightImage = ExtResource("25_neycv")
 GrayImage = ExtResource("26_6eorr")
 
-[node name="Equipment" type="PanelContainer" parent="VBoxContainer"]
+[node name="Equipment" type="PanelContainer" parent="VBoxContainer/DetailBlock"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("sb_flat")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DetailBlock/Equipment"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Equipment"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="VBoxContainer/Equipment/HBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer/DetailBlock/Equipment/HBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"BoldLabel"
 text = "Equipment: "
 
-[node name="EquipmentList" type="Label" parent="VBoxContainer/Equipment/HBoxContainer"]
+[node name="EquipmentList" type="Label" parent="VBoxContainer/DetailBlock/Equipment/HBoxContainer"]
 layout_mode = 2
 text = "Bow, travel garb"
 script = ExtResource("28_ful48")
 
-[node name="Attacks" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Attacks" type="VBoxContainer" parent="VBoxContainer/DetailBlock"]
 layout_mode = 2
 script = ExtResource("28_80a1i")
 AttackNodeScene = ExtResource("4_716ij")
 
-[node name="Label" type="Label" parent="VBoxContainer/Attacks"]
+[node name="Label" type="Label" parent="VBoxContainer/DetailBlock/Attacks"]
 layout_mode = 2
 theme_type_variation = &"BoldLabel"
 text = "BASIC ATTACKS"
 
-[node name="Attack" parent="VBoxContainer/Attacks" instance=ExtResource("4_716ij")]
+[node name="Attack" parent="VBoxContainer/DetailBlock/Attacks" instance=ExtResource("4_716ij")]
 layout_mode = 2
 
-[node name="Spells" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Spells" type="VBoxContainer" parent="VBoxContainer/DetailBlock"]
 layout_mode = 2
 script = ExtResource("30_tqdql")
 SpellScene = ExtResource("31_1wadr")
 
-[node name="Label" type="Label" parent="VBoxContainer/Spells"]
+[node name="Label" type="Label" parent="VBoxContainer/DetailBlock/Spells"]
 layout_mode = 2
 theme_type_variation = &"BoldLabel"
 text = "SPELLS"
 
-[node name="Spell" parent="VBoxContainer/Spells" instance=ExtResource("31_1wadr")]
+[node name="Spell" parent="VBoxContainer/DetailBlock/Spells" instance=ExtResource("31_1wadr")]
 layout_mode = 2
 
-[node name="OtherActions" type="VBoxContainer" parent="VBoxContainer"]
+[node name="OtherActions" type="VBoxContainer" parent="VBoxContainer/DetailBlock"]
 layout_mode = 2
 script = ExtResource("33_icnde")
 ActionScene = ExtResource("34_mp60j")
 
-[node name="Label" type="Label" parent="VBoxContainer/OtherActions"]
+[node name="Label" type="Label" parent="VBoxContainer/DetailBlock/OtherActions"]
 layout_mode = 2
 theme_type_variation = &"BoldLabel"
 text = "OTHER ACTIONS"
 
-[node name="OtherAction" parent="VBoxContainer/OtherActions" instance=ExtResource("34_mp60j")]
+[node name="OtherAction" parent="VBoxContainer/DetailBlock/OtherActions" instance=ExtResource("34_mp60j")]
 layout_mode = 2
 
-[node name="SpecialRules" type="VBoxContainer" parent="VBoxContainer"]
+[node name="SpecialRules" type="VBoxContainer" parent="VBoxContainer/DetailBlock"]
 layout_mode = 2
 script = ExtResource("33_gd0nc")
 OnlySpecialRules = true
 SkillNodeScene = ExtResource("33_ma2ky")
 
-[node name="Label" type="Label" parent="VBoxContainer/SpecialRules"]
+[node name="Label" type="Label" parent="VBoxContainer/DetailBlock/SpecialRules"]
 layout_mode = 2
 theme_type_variation = &"BoldLabel"
 text = "SPECIAL RULES"
 
-[node name="Action" parent="VBoxContainer/SpecialRules" instance=ExtResource("33_ma2ky")]
+[node name="Action" parent="VBoxContainer/DetailBlock/SpecialRules" instance=ExtResource("33_ma2ky")]
 layout_mode = 2
 
 [node name="ModifySection" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
+[node name="DetailsToggle" type="Button" parent="VBoxContainer/ModifySection"]
+layout_mode = 2
+toggle_mode = true
+text = "Details"
+
 [node name="AddToEncounterButton" type="Button" parent="VBoxContainer/ModifySection"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Add To Current Scene"
+text = "Add to Scene"
 script = ExtResource("39_l5v3b")
 
 [node name="EditNpcTemplateButton" type="Button" parent="VBoxContainer/ModifySection"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Edit NPC"
 script = ExtResource("40_r4t3x")
 BeastEditScene = ExtResource("41_xckw7")
 
 [node name="DeleteButton" type="Button" parent="VBoxContainer/ModifySection"]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_type_variation = &"DangerButton"
 text = "Delete NPC"
 script = ExtResource("40_1wrog")
@@ -435,7 +515,6 @@ DeleteBeastDialog = NodePath("../..")
 
 [node name="ClipboardButton" type="Button" parent="VBoxContainer/ModifySection"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Copy to Clipboard"
 script = ExtResource("46_p3wsb")
 
@@ -448,22 +527,30 @@ script = ExtResource("46_p3wsb")
 [connection signal="pressed" from="VBoxContainer/ModifySection/DeleteButton/DeleteDialog/VBoxContainer/CancelDeleteButton" to="VBoxContainer/ModifySection/DeleteButton/DeleteDialog/VBoxContainer/CancelDeleteButton" method="OnPressed"]
 [connection signal="pressed" from="VBoxContainer/ModifySection/ClipboardButton" to="VBoxContainer/ModifySection/ClipboardButton" method="OnClick"]
 
+[connection signal="toggled" from="VBoxContainer/ModifySection/DetailsToggle" to="VBoxContainer/DetailBlock" method="set_visible"]
+[connection signal="toggled" from="VBoxContainer/ModifySection/DetailsToggle" to="VBoxContainer/Description/DescriptionText/Details" method="set_visible"]
+[connection signal="toggled" from="VBoxContainer/ModifySection/DetailsToggle" to="VBoxContainer/Description/DescriptionText/Traits" method="set_visible"]
+
+[editable path="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryHP"]
+[editable path="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryMP"]
+[editable path="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryDef"]
+[editable path="VBoxContainer/Description/DescriptionText/SummaryLine/SummaryMDef"]
 [editable path="VBoxContainer/Description/DescriptionText/Traits"]
-[editable path="VBoxContainer/Stats/Dexterity"]
-[editable path="VBoxContainer/Stats/Insight"]
-[editable path="VBoxContainer/Stats/Might"]
-[editable path="VBoxContainer/Stats/WillPower"]
-[editable path="VBoxContainer/Stats/HealthPoints"]
-[editable path="VBoxContainer/Stats/MagicPoints"]
-[editable path="VBoxContainer/Stats/Initiative"]
-[editable path="VBoxContainer/Stats/Defense"]
-[editable path="VBoxContainer/Stats/MagicDefense"]
-[editable path="VBoxContainer/Stats/PhysicalResistance"]
-[editable path="VBoxContainer/Stats/AirResistance"]
-[editable path="VBoxContainer/Stats/BoltResistance"]
-[editable path="VBoxContainer/Stats/DarkResistance"]
-[editable path="VBoxContainer/Stats/EarthResistance"]
-[editable path="VBoxContainer/Stats/FireResistance"]
-[editable path="VBoxContainer/Stats/IceResistance"]
-[editable path="VBoxContainer/Stats/LightResistance"]
-[editable path="VBoxContainer/Stats/PoisonResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/Dexterity"]
+[editable path="VBoxContainer/DetailBlock/Stats/Insight"]
+[editable path="VBoxContainer/DetailBlock/Stats/Might"]
+[editable path="VBoxContainer/DetailBlock/Stats/WillPower"]
+[editable path="VBoxContainer/DetailBlock/Stats/HealthPoints"]
+[editable path="VBoxContainer/DetailBlock/Stats/MagicPoints"]
+[editable path="VBoxContainer/DetailBlock/Stats/Initiative"]
+[editable path="VBoxContainer/DetailBlock/Stats/Defense"]
+[editable path="VBoxContainer/DetailBlock/Stats/MagicDefense"]
+[editable path="VBoxContainer/DetailBlock/Stats/PhysicalResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/AirResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/BoltResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/DarkResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/EarthResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/FireResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/IceResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/LightResistance"]
+[editable path="VBoxContainer/DetailBlock/Stats/PoisonResistance"]

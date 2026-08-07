@@ -175,7 +175,19 @@ script = ExtResource("16_paqhm")
 [node name="BeastEntry" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer" instance=ExtResource("16_pr8a5")]
 layout_mode = 2
 
-[node name="AddToEncounterButton" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer" index="7"]
+[node name="Details" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Description/DescriptionText" index="1"]
+visible = true
+
+[node name="Traits" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Description/DescriptionText" index="2"]
+visible = true
+
+[node name="DetailBlock" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer" index="1"]
+visible = true
+
+[node name="DetailsToggle" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/ModifySection" index="0"]
+button_pressed = true
+
+[node name="AddToEncounterButton" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/ModifySection" index="1"]
 visible = false
 
 [node name="CompleteButton" type="Button" parent="TabContainer/ResultDetail/VBoxContainer"]
@@ -194,21 +206,21 @@ text = "Complete"
 
 [editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry"]
 [editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Description/DescriptionText/Traits"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/Dexterity"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/Insight"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/Might"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/WillPower"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/HealthPoints"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/MagicPoints"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/Initiative"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/Defense"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/MagicDefense"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/PhysicalResistance"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/AirResistance"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/BoltResistance"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/DarkResistance"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/EarthResistance"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/FireResistance"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/IceResistance"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/LightResistance"]
-[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Stats/PoisonResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/Dexterity"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/Insight"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/Might"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/WillPower"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/HealthPoints"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/MagicPoints"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/Initiative"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/Defense"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/MagicDefense"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/PhysicalResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/AirResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/BoltResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/DarkResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/EarthResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/FireResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/IceResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/LightResistance"]
+[editable path="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/DetailBlock/Stats/PoisonResistance"]
