@@ -20,11 +20,19 @@ public partial class ValidationsList : VBoxContainer, IBeastAttribute
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        _npcSheet = GetNode(StartNodePath) as NpcSheet;        
+        _npcSheet = GetNode(StartNodePath) as NpcSheet;
+        // a broken path here would otherwise silently disable validation and block saving
+        if (_npcSheet == null) GD.PushError($"ValidationsList couldn't find the NPC sheet at '{StartNodePath}'");
     }
 
     public void HandleBeastChanged(IBeastTemplate beastTemplate)
     {
+        if (_npcSheet == null)
+        {
+            // can't validate without the sheet; fail open rather than gating saves forever
+            EmitSignal(SignalName.IsBeastValid, 0, 0);
+            return;
+        }
         // clear prior validations
         var children = this.FindChildren("*", recursive: false);
         foreach (var child in children)
@@ -45,8 +53,17 @@ public partial class ValidationsList : VBoxContainer, IBeastAttribute
                 };
                 AddChild(validationLabel);
                 validationLabel.Owner = this;
-                if (validation.Level == ValidationLevel.ERROR) errors++;
-                if (validation.Level == ValidationLevel.WARNING) warnings++;
+                // color-code so failures stand out in the scrolling form
+                if (validation.Level == ValidationLevel.ERROR)
+                {
+                    validationLabel.AddThemeColorOverride("font_color", new Color("e06a66"));
+                    errors++;
+                }
+                if (validation.Level == ValidationLevel.WARNING)
+                {
+                    validationLabel.AddThemeColorOverride("font_color", new Color("d19a4a"));
+                    warnings++;
+                }
             }           
         }
         EmitSignal(SignalName.IsBeastValid, errors, warnings);

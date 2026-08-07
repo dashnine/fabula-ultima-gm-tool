@@ -420,7 +420,7 @@ text = "Errors and Warnings"
 [node name="ValidationsList" type="VBoxContainer" parent="ScrollContainer/MarginContainer/BeastEntryNode/Validations"]
 layout_mode = 2
 script = ExtResource("39_2f2qb")
-StartNodePath = "../../../../../NewNpcSheet"
+StartNodePath = "../../../../../../NewNpcSheet"
 
 [node name="SaveButton" type="Button" parent="ScrollContainer/MarginContainer/BeastEntryNode"]
 layout_mode = 2

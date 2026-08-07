@@ -10,6 +10,7 @@ public partial class CurrentEncounter : PanelContainer
 {
 	private Encounter Encounter { get; set; }
 	private RunState RunState { get; set; }
+	private AcceptDialog _addErrorDialog;
 
 	private Func<string> GetNextName { get; set; }
 
@@ -54,6 +55,17 @@ public partial class CurrentEncounter : PanelContainer
 		});
     }
 	
+	private void ShowAddError(string message)
+	{
+		if (_addErrorDialog == null)
+		{
+			_addErrorDialog = new AcceptDialog { Title = "Can't Add NPC" };
+			AddChild(_addErrorDialog);
+		}
+		_addErrorDialog.DialogText = message;
+		_addErrorDialog.PopupCentered();
+	}
+
 	public void HandleUpdateEncounter(Encounter encounter)
 	{
         Encounter = encounter;
@@ -80,10 +92,19 @@ public partial class CurrentEncounter : PanelContainer
 
 	public void AddNpcToEncounter(NpcInstance npc)
 	{
-        if (Encounter == null) return;
 		if (npc == null) return;
+		// these were silent early-returns; tell the user why the add was dropped
+		if (Encounter == null)
+		{
+			ShowAddError("No scene is loaded.\nLoad a scene from the Campaign tab first.");
+			return;
+		}
 		//todo: enable adding more npcs
-		if (Encounter.NpcCollection.Count() >= NPCLimit) return;
+		if (Encounter.NpcCollection.Count() >= NPCLimit)
+		{
+			ShowAddError($"This scene already has {NPCLimit} NPCs.");
+			return;
+		}
 		var clone = new NpcInstance(npc);
 		if (string.IsNullOrWhiteSpace(clone.InstanceName))
 		{

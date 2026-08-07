@@ -29,6 +29,7 @@ public partial class GetBeastiary : VBoxContainer
 
     private CompositeSearchFilter<IBeastTemplate> _searchFilter = new CompositeSearchFilter<IBeastTemplate>();
     private MessagePublisher<BeastiaryRefreshMessage> _messagePublisher;
+    private AcceptDialog _noSceneDialog;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -71,20 +72,40 @@ public partial class GetBeastiary : VBoxContainer
 
     private void HandleAddToEncounter(IBeastTemplate template)
     {
+        // adds always target the loaded scene; without one the save would be
+        // silently dropped downstream, so say so before opening the sheet
+        if (GetNode<RunState>("/root/RunState").RunningEncounter == null)
+        {
+            if (_noSceneDialog == null)
+            {
+                _noSceneDialog = new AcceptDialog { Title = "Can't Add NPC" };
+                AddChild(_noSceneDialog);
+            }
+            _noSceneDialog.DialogText = "No scene is loaded.\nLoad a scene from the Campaign tab first.";
+            _noSceneDialog.PopupCentered();
+            return;
+        }
+
 		var instance = new NpcInstance
-		{	
+		{
 			Model = new NpcModel(template.Model) // required to enable saving this using Godot
             {
                 Level = template.Level
             }
 		};
 
-		var npcSheet = NpcWizard.Instantiate<NpcSheet>();        
+		var npcSheet = NpcWizard.Instantiate<NpcSheet>();
         npcSheet.BeastModel = instance.Model;
         npcSheet.TitleOverride = "Add NPC to Encounter";
-        npcSheet.NpcInstance = instance;        
+        npcSheet.NpcInstance = instance;
         npcSheet.Closing += () => OnNpcSheetClose(npcSheet);
-        npcSheet.OnSave += AddInstanceToEncounter;
+        npcSheet.OnSave += savedInstance =>
+        {
+            AddInstanceToEncounter(savedInstance);
+            // the add flow is one-shot: close the sheet once the instance is
+            // handed off (deferred — this runs inside the sheet's call stack)
+            Callable.From(npcSheet.HandleCloseRequested).CallDeferred();
+        };
         this.AddChild(npcSheet);
     }
 
