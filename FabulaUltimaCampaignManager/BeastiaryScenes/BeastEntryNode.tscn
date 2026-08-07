@@ -130,9 +130,8 @@ text = "boastful, irritable, proud, strong "
 script = ExtResource("3_nqrqn")
 AttributeName = "Traits"
 
-[node name="Stats" type="GridContainer" parent="VBoxContainer"]
+[node name="Stats" type="HFlowContainer" parent="VBoxContainer"]
 layout_mode = 2
-columns = 9
 
 [node name="Dexterity" parent="VBoxContainer/Stats" instance=ExtResource("2_6f5hl")]
 layout_mode = 2

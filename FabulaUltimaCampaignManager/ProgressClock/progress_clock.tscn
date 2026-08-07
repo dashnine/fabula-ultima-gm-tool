@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://be218fgn5rxd2" path="res://ProgressClock/SegmentSlider.cs" id="4_gpcoa"]
 
 [node name="progress_clock" type="Window"]
-oversampling_override = 1.0
 title = "Progress Clock"
 initial_position = 1
 size = Vector2i(400, 400)

@@ -117,9 +117,8 @@ metadata/_tab_index = 7
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Players" type="GridContainer" parent="GMScreen/VBoxContainer"]
+[node name="Players" type="HFlowContainer" parent="GMScreen/VBoxContainer"]
 layout_mode = 2
-columns = 3
 script = ExtResource("10_xq16r")
 
 [node name="PlayerPanel1" parent="GMScreen/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
