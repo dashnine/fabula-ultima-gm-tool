@@ -113,70 +113,73 @@ TurnCounterCharacter = "⊕"
 ColorMark = Color(0.462745, 0.172549, 0.654902, 1)
 metadata/_tab_index = 7
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GMScreen"]
+[node name="MarginContainer" type="MarginContainer" parent="GMScreen"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Players" type="HFlowContainer" parent="GMScreen/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GMScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Players" type="HFlowContainer" parent="GMScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("10_xq16r")
 
-[node name="PlayerPanel1" parent="GMScreen/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
+[node name="PlayerPanel1" parent="GMScreen/MarginContainer/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
 layout_mode = 2
 
-[node name="PlayerPanel2" parent="GMScreen/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
+[node name="PlayerPanel2" parent="GMScreen/MarginContainer/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
 layout_mode = 2
 
-[node name="PlayerPanel3" parent="GMScreen/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
+[node name="PlayerPanel3" parent="GMScreen/MarginContainer/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
 layout_mode = 2
 
-[node name="PlayerPanel4" parent="GMScreen/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
+[node name="PlayerPanel4" parent="GMScreen/MarginContainer/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
 layout_mode = 2
 
-[node name="PlayerPanel5" parent="GMScreen/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
+[node name="PlayerPanel5" parent="GMScreen/MarginContainer/VBoxContainer/Players" instance=ExtResource("4_nde4l")]
 layout_mode = 2
 
-[node name="ProgressClockContainer" type="VBoxContainer" parent="GMScreen/VBoxContainer"]
+[node name="ProgressClockContainer" type="VBoxContainer" parent="GMScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("8_etldh")
 ProgressClockTemplate = ExtResource("9_j1li7")
 
-[node name="ShowProgressClockButton" type="Button" parent="GMScreen/VBoxContainer/ProgressClockContainer" groups=["hide_progress_clock"]]
+[node name="ShowProgressClockButton" type="Button" parent="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer" groups=["hide_progress_clock"]]
 layout_mode = 2
 text = "Show Progress Clocks"
 
-[node name="HideProgressClockButton" type="Button" parent="GMScreen/VBoxContainer/ProgressClockContainer" groups=["show_progress_clock"]]
+[node name="HideProgressClockButton" type="Button" parent="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer" groups=["show_progress_clock"]]
 visible = false
 layout_mode = 2
 text = "Hide Progress Clocks"
 
-[node name="AddClockButton" type="Button" parent="GMScreen/VBoxContainer/ProgressClockContainer"]
+[node name="AddClockButton" type="Button" parent="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer"]
 layout_mode = 2
 text = "Add Clock"
 
-[node name="GameLog" type="PanelContainer" parent="GMScreen/VBoxContainer"]
+[node name="GameLog" type="PanelContainer" parent="GMScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GameLog" type="VBoxContainer" parent="GMScreen/VBoxContainer/GameLog"]
+[node name="GameLog" type="VBoxContainer" parent="GMScreen/MarginContainer/VBoxContainer/GameLog"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GMScreen/VBoxContainer/GameLog/GameLog"]
+[node name="Label" type="Label" parent="GMScreen/MarginContainer/VBoxContainer/GameLog/GameLog"]
 layout_mode = 2
 theme_type_variation = &"BoldLabel"
 text = "Game Log"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="GMScreen/VBoxContainer/GameLog/GameLog"]
+[node name="ScrollContainer" type="ScrollContainer" parent="GMScreen/MarginContainer/VBoxContainer/GameLog/GameLog"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="GMScreen/VBoxContainer/GameLog/GameLog/ScrollContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="GMScreen/MarginContainer/VBoxContainer/GameLog/GameLog/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Log" type="RichTextLabel" parent="GMScreen/VBoxContainer/GameLog/GameLog/ScrollContainer/PanelContainer"]
+[node name="Log" type="RichTextLabel" parent="GMScreen/MarginContainer/VBoxContainer/GameLog/GameLog/ScrollContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
@@ -185,14 +188,14 @@ script = ExtResource("10_f45dp")
 PlayerWinFont = ExtResource("10_ywu3j")
 WhooshFont = ExtResource("11_42xhc")
 
-[node name="MusicControlContainer" type="HBoxContainer" parent="GMScreen/VBoxContainer"]
+[node name="MusicControlContainer" type="HBoxContainer" parent="GMScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VolumeLabel" type="Label" parent="GMScreen/VBoxContainer/MusicControlContainer"]
+[node name="VolumeLabel" type="Label" parent="GMScreen/MarginContainer/VBoxContainer/MusicControlContainer"]
 layout_mode = 2
 text = "Background Music Volume"
 
-[node name="VolumeSlider" type="HSlider" parent="GMScreen/VBoxContainer/MusicControlContainer"]
+[node name="VolumeSlider" type="HSlider" parent="GMScreen/MarginContainer/VBoxContainer/MusicControlContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -202,23 +205,23 @@ step = 0.001
 value = 0.2
 script = ExtResource("9_d26r8")
 
-[node name="VFlowContainer" type="HBoxContainer" parent="GMScreen/VBoxContainer"]
+[node name="VFlowContainer" type="HBoxContainer" parent="GMScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ResetRoundButton" type="Button" parent="GMScreen/VBoxContainer/VFlowContainer"]
+[node name="ResetRoundButton" type="Button" parent="GMScreen/MarginContainer/VBoxContainer/VFlowContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Reset Round"
 script = ExtResource("6_0ebfa")
 
-[node name="EndEncounterButton" type="Button" parent="GMScreen/VBoxContainer/VFlowContainer"]
+[node name="EndEncounterButton" type="Button" parent="GMScreen/MarginContainer/VBoxContainer/VFlowContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"DangerButton"
 text = "End Scene"
 script = ExtResource("12_2xgj5")
 
-[node name="PlayersWinButton" type="Button" parent="GMScreen/VBoxContainer/VFlowContainer"]
+[node name="PlayersWinButton" type="Button" parent="GMScreen/MarginContainer/VBoxContainer/VFlowContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Players Win!"
@@ -228,10 +231,10 @@ script = ExtResource("11_vguco")
 visible = false
 
 [connection signal="tree_exiting" from="." to="." method="HandleTreeExiting"]
-[connection signal="pressed" from="GMScreen/VBoxContainer/ProgressClockContainer/ShowProgressClockButton" to="GMScreen/VBoxContainer/ProgressClockContainer" method="HandleShowPressed"]
-[connection signal="pressed" from="GMScreen/VBoxContainer/ProgressClockContainer/HideProgressClockButton" to="GMScreen/VBoxContainer/ProgressClockContainer" method="HandleHidePressed"]
-[connection signal="pressed" from="GMScreen/VBoxContainer/ProgressClockContainer/AddClockButton" to="GMScreen/VBoxContainer/ProgressClockContainer" method="HandleAddPressed"]
-[connection signal="drag_ended" from="GMScreen/VBoxContainer/MusicControlContainer/VolumeSlider" to="GMScreen/VBoxContainer/MusicControlContainer/VolumeSlider" method="HandleDragEnded"]
-[connection signal="pressed" from="GMScreen/VBoxContainer/VFlowContainer/ResetRoundButton" to="GMScreen/VBoxContainer/VFlowContainer/ResetRoundButton" method="HandlePressed"]
-[connection signal="pressed" from="GMScreen/VBoxContainer/VFlowContainer/EndEncounterButton" to="GMScreen/VBoxContainer/VFlowContainer/EndEncounterButton" method="OnButtonPressed"]
-[connection signal="pressed" from="GMScreen/VBoxContainer/VFlowContainer/PlayersWinButton" to="GMScreen/VBoxContainer/VFlowContainer/PlayersWinButton" method="HandlePressed"]
+[connection signal="pressed" from="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer/ShowProgressClockButton" to="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer" method="HandleShowPressed"]
+[connection signal="pressed" from="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer/HideProgressClockButton" to="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer" method="HandleHidePressed"]
+[connection signal="pressed" from="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer/AddClockButton" to="GMScreen/MarginContainer/VBoxContainer/ProgressClockContainer" method="HandleAddPressed"]
+[connection signal="drag_ended" from="GMScreen/MarginContainer/VBoxContainer/MusicControlContainer/VolumeSlider" to="GMScreen/MarginContainer/VBoxContainer/MusicControlContainer/VolumeSlider" method="HandleDragEnded"]
+[connection signal="pressed" from="GMScreen/MarginContainer/VBoxContainer/VFlowContainer/ResetRoundButton" to="GMScreen/MarginContainer/VBoxContainer/VFlowContainer/ResetRoundButton" method="HandlePressed"]
+[connection signal="pressed" from="GMScreen/MarginContainer/VBoxContainer/VFlowContainer/EndEncounterButton" to="GMScreen/MarginContainer/VBoxContainer/VFlowContainer/EndEncounterButton" method="OnButtonPressed"]
+[connection signal="pressed" from="GMScreen/MarginContainer/VBoxContainer/VFlowContainer/PlayersWinButton" to="GMScreen/MarginContainer/VBoxContainer/VFlowContainer/PlayersWinButton" method="HandlePressed"]

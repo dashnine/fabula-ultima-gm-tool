@@ -183,7 +183,7 @@ layout_mode = 2
 
 [node name="Window Title" type="Label" parent="HSplitContainer/CurrentEncounter/VBoxContainer"]
 layout_mode = 2
-theme_type_variation = &"BoldLabel"
+theme_type_variation = &"HeaderLabel"
 text = "Current Scene"
 
 [node name="EncounterTitle" type="LineEdit" parent="HSplitContainer/CurrentEncounter/VBoxContainer"]
@@ -342,7 +342,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HSplitContainer/CurrentEncounter/VBoxContainer"]
 layout_mode = 2
-theme_type_variation = &"BoldLabel"
+theme_type_variation = &"HeaderLabel"
 text = "NPC List"
 horizontal_alignment = 1
 
@@ -400,6 +400,7 @@ script = ExtResource("20_n478f")
 
 [node name="SaveStatusLabel" type="Label" parent="HSplitContainer/CampaignManager/Campaign/CampaignGrid/CampaignName"]
 layout_mode = 2
+theme_type_variation = &"MutedLabel"
 tooltip_text = "When the campaign was last written to disk"
 text = ""
 
@@ -415,7 +416,7 @@ script = ExtResource("6_ful6c")
 
 [node name="EncounterLabel" type="Label" parent="HSplitContainer/CampaignManager/Campaign/CampaignGrid/Encounters"]
 layout_mode = 2
-theme_type_variation = &"BoldLabel"
+theme_type_variation = &"HeaderLabel"
 text = "Scenes"
 horizontal_alignment = 1
 uppercase = true
@@ -452,7 +453,7 @@ size_flags_vertical = 3
 [node name="PlayerTitle" type="Label" parent="HSplitContainer/CampaignManager/Campaign/CampaignGrid/PlayerSection"]
 layout_mode = 2
 size_flags_vertical = 8
-theme_type_variation = &"BoldLabel"
+theme_type_variation = &"HeaderLabel"
 text = "Player Slots"
 horizontal_alignment = 1
 uppercase = true
@@ -487,7 +488,10 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HSplitContainer/CampaignManager/Campaign/CampaignGrid/VillainSection"]
 layout_mode = 2
+theme_type_variation = &"HeaderLabel"
 text = "Villains"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/CampaignManager/Campaign/CampaignGrid/VillainSection"]
 layout_mode = 2
