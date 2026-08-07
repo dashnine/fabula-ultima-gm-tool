@@ -72,4 +72,5 @@ ui_accept={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.09, 0.078, 0.11, 1)
