@@ -28,9 +28,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_foytl")
 script = ExtResource("3_ixuxb")
 
 [node name="PortraitTexture" type="TextureRect" parent="PortraitPanel"]
+custom_minimum_size = Vector2(110, 110)
 layout_mode = 2
 texture = ExtResource("3_0fvvd")
-expand_mode = 2
+expand_mode = 1
 stretch_mode = 5
 script = ExtResource("5_xjvkr")
 

@@ -25,9 +25,10 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PortraitTexture" type="TextureRect" parent="HBoxContainer/Portrait"]
+custom_minimum_size = Vector2(110, 110)
 layout_mode = 2
 texture = ExtResource("3_pxksc")
-expand_mode = 2
+expand_mode = 1
 stretch_mode = 5
 script = ExtResource("4_wr4x0")
 
@@ -44,7 +45,6 @@ title = "Open a File"
 initial_position = 1
 size = Vector2i(500, 500)
 min_size = Vector2i(500, 500)
-content_scale_mode = 1
 ok_button_text = "Open"
 file_mode = 0
 access = 2

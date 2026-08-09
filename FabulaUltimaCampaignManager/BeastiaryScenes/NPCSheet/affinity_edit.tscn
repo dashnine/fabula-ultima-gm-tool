@@ -30,9 +30,11 @@ script = ExtResource("1_bm3ue")
 layout_mode = 2
 
 [node name="Image" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 texture = ExtResource("2_mpcq3")
-expand_mode = 2
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("3_tn82f")
 Images = {
 "air": ExtResource("4_r0did"),
