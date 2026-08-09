@@ -62,6 +62,7 @@ public partial class GetBeastiary : VBoxContainer
         foreach (var beast in dBAccess.Repository.GetBeasts().Where(b => _searchFilter.Apply(b)))
         {
             var node = BeastEntryScene.Instantiate<BeastEntryNode>();
+            node.UseThumbnails = true;
             node.Beast = beast;
             this.AddChild(node);
             node.OnAddToEncounter += HandleAddToEncounter;

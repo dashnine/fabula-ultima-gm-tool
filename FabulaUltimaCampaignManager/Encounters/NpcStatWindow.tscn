@@ -7,7 +7,6 @@
 title = "NPC Panel"
 initial_position = 1
 size = Vector2i(742, 670)
-content_scale_aspect = 1
 script = ExtResource("1_oimej")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -29,7 +28,7 @@ visible = true
 [node name="DetailBlock" parent="ScrollContainer/BeastEntryNode/VBoxContainer" index="1"]
 visible = true
 
-[node name="DetailsToggle" parent="ScrollContainer/BeastEntryNode/VBoxContainer/ModifySection" index="0"]
+[node name="DetailsToggle" parent="ScrollContainer/BeastEntryNode/VBoxContainer/Description/DescriptionText/ModifySection" index="0"]
 button_pressed = true
 
 [connection signal="close_requested" from="." to="." method="OnCloseRequested"]

@@ -184,10 +184,10 @@ visible = true
 [node name="DetailBlock" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer" index="1"]
 visible = true
 
-[node name="DetailsToggle" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/ModifySection" index="0"]
+[node name="DetailsToggle" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Description/DescriptionText/ModifySection" index="0"]
 button_pressed = true
 
-[node name="AddToEncounterButton" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/ModifySection" index="1"]
+[node name="AddToEncounterButton" parent="TabContainer/ResultDetail/VBoxContainer/ScrollContainer/BeastEntry/VBoxContainer/Description/DescriptionText/ModifySection" index="1"]
 visible = false
 
 [node name="CompleteButton" type="Button" parent="TabContainer/ResultDetail/VBoxContainer"]
