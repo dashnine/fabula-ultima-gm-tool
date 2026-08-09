@@ -58,7 +58,14 @@ public partial class SpellPanel : PanelContainer
 
     public void OnUseSpell()
     {
-        if (_spell.IsOffensive && _spell.DamageType != null && _spell.DamageModifier != null)
+        if (_battleStatus.CurrentMP < _spell.MagicPointCost)
+        {
+            EmitSignal(SignalName.NotEnoughMP);
+            return;
+        }
+        // every offensive spell needs its magic check, damage or not - the roll
+        // popup deducts the MP when the roll happens
+        if (_spell.IsOffensive)
         {
             EmitSignal(SignalName.OnCastOffensiveSpell);
         }
@@ -73,7 +80,7 @@ public partial class SpellPanel : PanelContainer
                 Verb = "casts",
             }).AsMessage());
         }
-       
+
         if (_battleStatus.CurrentMP < _spell.MagicPointCost) EmitSignal(SignalName.NotEnoughMP);
     }
 }

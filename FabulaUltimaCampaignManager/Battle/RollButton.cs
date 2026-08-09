@@ -20,11 +20,6 @@ public partial class RollButton : Button, INpcReader, ISpellReader
         this.Disabled = true;
 	}
 
-    public void HandleTreeExiting()
-    {
-        if(_status != null) _status.Changed -= HandleNpcStatusChanged;
-    }
-
     public void HandleNpcChanged(NpcInstance npc)
     {
 		_instance = npc;
@@ -60,6 +55,8 @@ public partial class RollButton : Button, INpcReader, ISpellReader
             Target = _checkModel.Target,
         };
         EmitSignal(SignalName.ResultReady, new SignalWrapper<CheckResult>(checkResult));
+        // spells cost their MP per roll, hit or miss; attacks never set a cost
+        if (_mpCost != null && _status != null) _status.CurrentMP -= _mpCost.Value;
 	}
 
     public void OnActionSet(SignalWrapper<ICheckModel> signal)
@@ -77,13 +74,6 @@ public partial class RollButton : Button, INpcReader, ISpellReader
         _checkModel.Changed += this.OnCheckChanged;
         if (status == null) return;
         _status = status;
-        _status.Changed += HandleNpcStatusChanged; 
-    }
-
-    private void HandleNpcStatusChanged()
-    {
-        if (_mpCost != null) return;
-        _status.CurrentMP -= _mpCost.Value;
     }
 
     private void OnCheckChanged()
