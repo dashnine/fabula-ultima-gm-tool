@@ -20,6 +20,9 @@ title = "Player View"
 initial_position = 3
 size = Vector2i(1300, 900)
 current_screen = 0
+content_scale_size = Vector2i(1300, 900)
+content_scale_mode = 1
+content_scale_aspect = 1
 theme = ExtResource("6_q2ftn")
 script = ExtResource("1_m7k50")
 

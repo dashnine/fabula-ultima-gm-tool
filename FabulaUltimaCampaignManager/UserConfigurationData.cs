@@ -11,6 +11,9 @@ namespace FabulaUltimaGMTool
         public bool BackgroundMusicEnabled { get; set; }
 
         [Export]
+        public float UiScale { get; set; } = 1f;
+
+        [Export]
         public string[] InstanceNames { get; set; }
     }
 }

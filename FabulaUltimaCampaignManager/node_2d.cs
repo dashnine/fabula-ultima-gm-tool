@@ -6,7 +6,9 @@ public partial class node_2d : Control
 	public override void _Ready()
 	{
 		GetWindow().Title = "Fabula Ultima GM Tool";
-		// stretch is disabled, so guard against shrinking the window below the layout minimum
+		// stretch is disabled, so guard against shrinking the window below the layout
+		// minimum. Deliberately not scaled by the UI Scale factor: zooming works like a
+		// browser - the window stays put and the scroll containers absorb the difference
 		GetWindow().MinSize = new Vector2I(1100, 640);
 		// the tab title comes from the node name, which code paths depend on;
 		// override just the visible text to the correct spelling

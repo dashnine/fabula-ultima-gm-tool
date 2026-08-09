@@ -26,6 +26,7 @@ MessageRouter="*res://Messaging/MessageRouter.cs"
 DbAccess="*res://DbAccess.cs"
 SkillResolver="*res://SkillResolver.cs"
 UserConfigurationState="*res://UserConfigurationState.cs"
+WindowScaler="*res://WindowScaler.cs"
 
 [display]
 

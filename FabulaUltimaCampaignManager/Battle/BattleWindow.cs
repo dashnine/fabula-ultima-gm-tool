@@ -12,7 +12,6 @@ public partial class BattleWindow : Window, IEncounterReader
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		this.ResizeForResolution();
         var messageRouter = GetNode<MessageRouter>("/root/MessageRouter");
         _endPublisher = messageRouter.GetPublisher<EncounterEnd>();
         // closing the player-facing window ends the scene, same as the GM's End Encounter button

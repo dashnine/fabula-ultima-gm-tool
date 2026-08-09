@@ -20,7 +20,6 @@ public partial class NpcStatWindow : Window
             _beastEntyNode = child as BeastEntryNode;
             _beastEntyNode.BeastChanged += HandleBeastChanged;
         }
-        this.ResizeForResolution();
     }
 
     private void HandleBeastChanged(IBeastTemplate _)
