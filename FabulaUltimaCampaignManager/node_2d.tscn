@@ -402,6 +402,7 @@ script = ExtResource("20_n478f")
 layout_mode = 2
 theme_type_variation = &"MutedLabel"
 tooltip_text = "When the campaign was last written to disk"
+mouse_filter = 1
 text = ""
 
 [node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/CampaignManager/Campaign/CampaignGrid"]
@@ -514,8 +515,10 @@ metadata/_tab_index = 0
 
 [node name="ProgressClockLabel" type="Label" parent="HSplitContainer/CampaignManager/Campaign/CampaignGrid/Misc/Progress Clocks"]
 layout_mode = 2
+tooltip_text = "These clocks are campaign-wide and are not shown in battles."
+mouse_filter = 1
 theme_type_variation = &"BoldLabel"
-text = "Campaign Clocks (not shown in battles)"
+text = "Campaign Clocks"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/CampaignManager/Campaign/CampaignGrid/Misc/Progress Clocks"]
