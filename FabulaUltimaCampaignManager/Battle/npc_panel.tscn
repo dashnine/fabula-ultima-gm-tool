@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bsxr63lu04kga"]
+[gd_scene load_steps=29 format=3 uid="uid://bsxr63lu04kga"]
 
 [ext_resource type="PackedScene" uid="uid://btyqcwcw47tqx" path="res://LabeledText.tscn" id="1_1ptjk"]
 [ext_resource type="Theme" uid="uid://d2sfrnkc8pqs1" path="res://node_2d.tres" id="1_83a5u"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://Battle/NpcPanel/HighRollMod.cs" id="18_87kxn"]
 [ext_resource type="Script" path="res://Battle/ExpectedDamage.cs" id="18_wj2dn"]
 [ext_resource type="Script" path="res://Battle/NpcPanel/ResultLabel.cs" id="21_xpnbq"]
+[ext_resource type="PackedScene" uid="uid://dc0affedpop3q" path="res://Battle/NpcPanel/AffinityEditPopup.tscn" id="22_afpop"]
 
 [node name="NPCPanel" type="PanelContainer"]
 offset_right = 1062.0
@@ -396,6 +397,11 @@ layout_mode = 2
 text = "Apply Damage"
 script = ExtResource("15_1atgb")
 
+[node name="AffinityEditButton" type="Button" parent="NpcStatus/Damage"]
+layout_mode = 2
+tooltip_text = "Change this creature's damage affinities mid-battle. Changes stay with the scene's copy of the NPC."
+text = "Edit Affinities"
+
 [node name="Notes" type="TextEdit" parent="NpcStatus"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -407,7 +413,10 @@ text = "Finish Turn"
 script = ExtResource("15_6xvc4")
 TurnCounterCharacter = "⊕"
 
+[node name="AffinityEditPopup" parent="." instance=ExtResource("22_afpop")]
+
 [connection signal="RoundChanged" from="." to="NpcStatus/FinishTurnButton" method="OnRoundChanged"]
+[connection signal="pressed" from="NpcStatus/Damage/AffinityEditButton" to="AffinityEditPopup" method="HandleOpen"]
 [connection signal="toggled" from="NpcStatus/Statuses/DeadToggle" to="NpcStatus/Statuses/DeadToggle" method="OnToggleDeath"]
 [connection signal="value_changed" from="NpcStatus/StudyLevelBar/StudyLevelSlider" to="NpcStatus/StudyLevelBar/CurrentStudyLevel" method="OnSliderValueChanged"]
 [connection signal="ActionSet" from="NpcStatus/Roll/ActionOptions" to="NpcStatus/Roll/Attribute1Options" method="OnActionSet"]

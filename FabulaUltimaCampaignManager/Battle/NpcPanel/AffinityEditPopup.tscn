@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc0affedpop3q"]
+
+[ext_resource type="Script" path="res://Battle/NpcPanel/AffinityEditPopup.cs" id="1_afpop"]
+[ext_resource type="Theme" uid="uid://d2sfrnkc8pqs1" path="res://node_2d.tres" id="2_afpop"]
+[ext_resource type="PackedScene" uid="uid://dyorgxiwguhn3" path="res://BeastiaryScenes/NPCSheet/affinity_edit.tscn" id="3_afpop"]
+
+[node name="AffinityEditPopup" type="Window"]
+title = "Edit Affinities"
+initial_position = 1
+size = Vector2i(360, 480)
+visible = false
+transient = true
+theme = ExtResource("2_afpop")
+script = ExtResource("1_afpop")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="AffinityList" type="VBoxContainer" parent="PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Physical" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Physical"
+
+[node name="Air" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Air"
+
+[node name="Bolt" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Bolt"
+
+[node name="Dark" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Dark"
+
+[node name="Earth" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Earth"
+
+[node name="Fire" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Fire"
+
+[node name="Ice" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Ice"
+
+[node name="Light" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Light"
+
+[node name="Poison" parent="PanelContainer/ScrollContainer/AffinityList" instance=ExtResource("3_afpop")]
+layout_mode = 2
+AffinityName = "Poison"

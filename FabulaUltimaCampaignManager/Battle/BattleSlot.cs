@@ -44,13 +44,24 @@ public partial class BattleSlot : Node2D, INpcInstanceReader
 	}
 
     public void ReadNpc(NpcInstance instance, BattleStatus battleStatus)
-    {   
+    {
         this.Visible = true;
         NpcChanged?.Invoke(instance);
         battleStatus.StatusChanged += this.StatusChanged;
         battleStatus.StudyLevelChanged += this.HandleStudyLevelChanged;
+        battleStatus.AffinityChanged += _ => HandleAffinityChanged(instance);
         EmitSignal(SignalName.NpcStudyLevelChanged, battleStatus);
         EmitSignal(SignalName.NpcColorSet, ColorMark);
+    }
+
+    private void HandleAffinityChanged(NpcInstance instance)
+    {
+        // only the affinity icons re-read; re-firing NpcChanged would also reload the sprite
+        foreach (var child in this.FindChildren("*")
+           .Where(c => c is AffinityEntry))
+        {
+            (child as AffinityEntry).HandleNpcChanged(instance);
+        }
     }
 
     private void HandleStudyLevelChanged(BattleStatus newStatus)

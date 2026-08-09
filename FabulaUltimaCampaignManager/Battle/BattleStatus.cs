@@ -25,6 +25,12 @@ public partial class BattleStatus : Resource
 
     public Action<BattleStatus> StatusChanged { get; set; }
     public Action<BattleStatus> StudyLevelChanged { get; set; }
+    public Action<BattleStatus> AffinityChanged { get; set; }
+
+    public void NotifyAffinityChanged()
+    {
+        AffinityChanged?.Invoke(this);
+    }
 
     private int _numTurnsLeft;
     public int NumTurnsLeft
